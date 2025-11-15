@@ -1,0 +1,30 @@
+{
+  "name": "Blackhorse311.KeepStartingGear",
+  "version": "2.1.1",
+  "displayName": "Keep Starting Gear",
+  "author": "Blackhorse311",
+  "description": "Automatically restores your equipment after death in raid, allowing you to keep your starting gear and try again.",
+  "license": "MIT",
+  "keywords": [
+    "gear",
+    "restore",
+    "death",
+    "equipment",
+    "starting gear",
+    "quality of life"
+  ],
+  "main": "KeepStartingGear.dll",
+  "sptVersion": "4.0.4",
+  "akiVersion": "4.0.4",
+  "url": "https://github.com/Blackhorse311/KeepStartingGear",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Blackhorse311/KeepStartingGear.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Blackhorse311/KeepStartingGear/issues"
+  },
+  "dependencies": {},
+  "loadOrder": 0,
+  "modType": "server"
+}
