@@ -1,0 +1,46 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <!-- SPT 4.0 uses net9.0 -->
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+
+    <!-- Keep XML docs off for now -->
+    <GenerateDocumentationFile>false</GenerateDocumentationFile>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+
+    <!-- Mod / assembly version -->
+    <Version>2.1.0</Version>
+  </PropertyGroup>
+
+  <!-- Direct references to SPT server DLLs -->
+  <ItemGroup>
+    <Reference Include="SPTarkov.Server.Core">
+      <HintPath>H:\SPT\SPT\SPTarkov.Server.Core.dll</HintPath>
+    </Reference>
+
+    <Reference Include="SPTarkov.DI">
+      <HintPath>H:\SPT\SPT\SPTarkov.DI.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <!-- SemanticVersioning for Version/Range in ModMetadata -->
+  <ItemGroup>
+    <PackageReference Include="SemanticVersioning" Version="3.0.0" />
+  </ItemGroup>
+
+  <!-- Copy the built DLL (and config) into your live SPT mods folder after build -->
+  <Target Name="CopyToSPT" AfterTargets="Build">
+    <PropertyGroup>
+      <DestDir>H:\SPT\SPT\user\mods\Blackhorse311.KeepStartingGear\</DestDir>
+    </PropertyGroup>
+    <Message Importance="high" Text="Copying mod outputs to: $(DestDir)" />
+    <ItemGroup>
+      <_FilesToCopy Include="$(TargetDir)$(TargetFileName)" />
+      <_FilesToCopy Include="$(ProjectDir)config.json" Condition="Exists('$(ProjectDir)config.json')" />
+    </ItemGroup>
+    <Copy SourceFiles="@(_FilesToCopy)" DestinationFolder="$(DestDir)" SkipUnchangedFiles="true" />
+  </Target>
+
+</Project>
