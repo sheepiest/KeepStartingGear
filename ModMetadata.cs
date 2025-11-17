@@ -22,7 +22,7 @@ namespace Blackhorse311.KeepStartingGear
             new SemanticVersioning.Version("2.1.1");
 
         // SPT version compatibility range.
-        public override Range SptVersion { get; init; } = new Range("4.0.4");
+        public override Range SptVersion { get; init; } = new Range("~4.0.4");
 
         // URL for source / documentation.
         public override string? Url { get; init; } =
